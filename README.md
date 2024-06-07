@@ -1,61 +1,82 @@
-Tennis Game Simulation
-=======================
+# Tennis Game Scoring System
 
-This project simulates a tennis game and provides a console output of the game's scoreboard.
+This project implements the scoring system for a tennis game as part of a software engineering practical.
 
-Getting Started
----------------
+## Classes and Interfaces
 
-To run the Tennis Game simulation, follow these steps:
+### TennisGameInterface
 
-1. Clone the repository:
+#### Methods
 
-   git clone <repository_url>
+- `scoreboard() -> string`: Returns the formatted score as a string. Examples: "Fifteen-Love", "Deuce", "Advantage Player 1", "Won by Player 1"
 
-2. Navigate to the project directory:
+- `isComplete() -> bool`: Returns `True` if the game is complete, `False` otherwise.
 
-   cd tennis-game-simulation
+- `player1Point() -> void`: Called when Player 1 scores a point.
 
-3. Install dependencies:
+- `player2Point() -> void`: Called when Player 2 scores a point.
 
-   composer install
+### TennisGame
 
-4. Run the simulation:
+Implements the `TennisGameInterface`.
 
-   php bin/console ball [player1_name] [player2_name]
+#### Methods
 
-   Replace [player1_name] and [player2_name] with optional names for Player 1 and Player 2. If names are not provided, default names will be used.
+- `scoreboard() -> string`: Returns the formatted score as a string. Examples: "Fifteen-Love", "Deuce", "Advantage Player 1", "Won by Player 1"
 
-Features
---------
+- `isComplete() -> bool`: Returns `True` if the game is complete, `False` otherwise.
 
-- Simulates a tennis game according to the specified rules.
-- Displays the game scoreboard in the console.
-- Supports customization of player names.
-- Provides a clean and well-commented codebase.
+- `player1Point() -> void`: Called when Player 1 scores a point.
 
-Usage
------
+- `player2Point() -> void`: Called when Player 2 scores a point.
 
-The main command to run the simulation is:
+### Installation
 
-php bin/console ball [player1_name] [player2_name]
+1. Ensure you have PHP installed.
+2. Install PEST via Composer:
 
-- [player1_name]: Optional name for Player 1 (default: "Player 1").
-- [player2_name]: Optional name for Player 2 (default: "Player 2").
+# Tennis Game Scoring System
 
-Example usage:
+## Overview
 
-php bin/console ball Serena Venus
+This project implements the scoring system for a tennis game as part of a software engineering practical.
 
-This command will simulate a tennis game between Serena and Venus and display the scoreboard in the console.
+## Requirements
 
-Contributing
-------------
+- PHP 7.4 or higher
+- Composer
 
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on GitHub.
+## Setup
 
-License
--------
+1. Install dependencies:
+    ```bash
+    composer install
+    ```
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+2. Run the simulation:
+    ```bash
+    php bin/console ball
+    ```
+
+3. Run the unit tests:
+    ```bash
+    vendor/bin/phpunit
+    ```
+
+## Usage
+
+The main command for simulating a tennis game is `ball`. You can provide optional arguments for player names:
+
+```bash
+php bin/console ball "Player 1" "Player 2"
+```
+
+## Testing
+Unit tests are located in the tests directory. Run the tests using PHPUnit:
+
+```bash
+vendor/bin/phpunit
+```
+
+### License
+This project is licensed under the MIT License.
