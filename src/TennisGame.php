@@ -1,5 +1,4 @@
 <?php
-
 namespace TennisGame;
 
 class TennisGame implements TennisGameInterface {
@@ -15,11 +14,8 @@ class TennisGame implements TennisGameInterface {
         if ($this->player1_score >= 3 && $this->player2_score >= 3) {
             if ($this->player1_score == $this->player2_score) {
                 return "Deuce";
-            } elseif ($this->player1_score == $this->player2_score + 1) {
-                return "Advantage Player 1";
-            } elseif ($this->player2_score == $this->player1_score + 1) {
-                return "Advantage Player 2";
             }
+            return "Advantage Player " . ($this->player1_score > $this->player2_score ? "1" : "2");
         }
 
         if ($this->player1_score == $this->player2_score) {
@@ -34,10 +30,14 @@ class TennisGame implements TennisGameInterface {
     }
 
     public function player1Point(): void {
-        $this->player1_score += 1;
+        if (!$this->isComplete()) {
+            $this->player1_score += 1;
+        }
     }
 
     public function player2Point(): void {
-        $this->player2_score += 1;
+        if (!$this->isComplete()) {
+            $this->player2_score += 1;
+        }
     }
 }
