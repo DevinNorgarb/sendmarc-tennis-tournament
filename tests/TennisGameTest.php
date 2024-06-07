@@ -55,3 +55,15 @@ it('Player 1 wins the game when they have at least two points more than Player 2
     expect($game->scoreboard())->toBe('Won by Player 1');
     expect($game->isComplete())->toBeTrue();
 });
+
+it('does not allow scoring after the game is complete', function () {
+    $game = new TennisGame();
+    $game->player1Point();
+    $game->player1Point();
+    $game->player1Point();
+    $game->player1Point(); // Player 1 wins
+
+    $game->player2Point(); // This point should not be counted
+    expect($game->scoreboard())->toBe('Won by Player 1');
+    expect($game->isComplete())->toBeTrue();
+});
