@@ -2,7 +2,8 @@
 
 namespace TennisGame;
 
-interface TennisGameInterface {
+interface TennisGameInterface
+{
     public function scoreboard(): string;
     public function isComplete(): bool;
     public function player1Point(): void;
